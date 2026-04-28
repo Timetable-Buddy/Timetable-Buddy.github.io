@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.timetablebuddy.timetable_buddy.google",
+      "sha256_cert_fingerprints": [
+        "46:F2:A9:74:D5:DF:D5:ED:A4:87:C8:27:B2:36:B4:2A:B1:CB:B9:9A:C4:D9:93:8E:BF:AE:F1:6A:6B:24:E6:D9"
+      ]
+    }
+  }
+]
