@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Timetable Buddy</title>
+  <meta name="description" content="You've been invited to Timetable Buddy — the smart student planner.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1A4D6B 0%, #43C6E3 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 24px;
+    }
+    .card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 24px;
+      padding: 40px 32px;
+      max-width: 360px;
+      width: 100%;
+      backdrop-filter: blur(12px);
+    }
+    .logo { font-size: 48px; margin-bottom: 16px; }
+    h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    p { font-size: 15px; opacity: 0.85; line-height: 1.5; margin-bottom: 28px; }
+    .btn {
+      display: inline-block;
+      background: white;
+      color: #1A4D6B;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+    .store-note { font-size: 12px; opacity: 0.65; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">📚</div>
+    <h1>You're Invited!</h1>
+    <p>Join Timetable Buddy — the smart student planner for managing classes, exams, and study sessions.</p>
+    <a class="btn" id="cta" href="https://play.google.com/store/apps/details?id=io.github.timetablebuddy.timetable_buddy">
+      Get the App
+    </a>
+    <p class="store-note">Available on Google Play</p>
+  </div>
+
+  <script>
+    // Try to open the app via deep link, fall back to Play Store
+    const deepLink = 'timetablebuddy://invite' + window.location.search;
+    const storeUrl = 'https://play.google.com/store/apps/details?id=io.github.timetablebuddy.timetable_buddy';
+
+    // Attempt deep link open; if app not installed the browser stays on this page
+    const start = Date.now();
+    window.location.href = deepLink;
+
+    // After a short delay, redirect to Play Store if the app didn't open
+    setTimeout(function () {
+      if (Date.now() - start < 2000) {
+        window.location.href = storeUrl;
+      }
+    }, 1500);
+  </script>
+</body>
+</html>
